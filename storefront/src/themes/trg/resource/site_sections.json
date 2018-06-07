@@ -1,0 +1,22 @@
+[
+  {
+    "name": "закупки онлайн",
+    "image": "/assets/home/section-purchasing.png",
+    "link": "/c/men-11"
+  },
+  {
+    "name": "реестр закупок",
+    "image": "/assets/home/section-registry.png",
+    "link": "/c/gear-3"
+  },
+  {
+    "name": "электронные площадки",
+    "image": "/assets/home/section-platform.png",
+    "link": "/c/men-11"
+  },
+  {
+    "name": "ЕИС",
+    "image": "/assets/home/section-eis.png",
+    "link": "/c/gear-3"
+  }
+]

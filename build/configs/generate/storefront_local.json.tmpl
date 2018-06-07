@@ -1,0 +1,81 @@
+{
+  'elasticsearch': {
+    'httpAuth': '',
+    'host': '$storefront_urlapi/api/catalog',
+    'index': 'vue_storefront_catalog',
+    'indexProduct': 'vue_storefront_catalog',
+    'indexCategory': 'vue_storefront_category'
+  },
+  'cart': {
+    'synchronize': false,
+    'synchronize_totals': false,
+    'create_endpoint': '$storefront_create_endpoint',
+    'updateitem_endpoint': '$storefront_updateitem_endpoint',
+    'deleteitem_endpoint': '$storefront_deleteitem_endpoint',
+    'pull_endpoint': '$storefront_pull_endpoint',
+    'totals_endpoint': '$storefront_totals_endpoint',
+    'paymentmethods_endpoint': '$storefront_paymentmethods_endpoint',
+    'shippingmethods_endpoint': '$storefront_shippingmethods_endpoint',
+    'shippinginfo_endpoint': '$storefront_shippinginfo_endpoint',
+    'collecttotals_endpoint': '$storefront_collecttotals_endpoint',
+    'deletecoupon_endpoint': '$storefront_deletecoupon_endpoint',
+    'applycoupon_endpoint': '$storefront_applycoupon_endpoint'
+  },
+  'products': {
+    'preventConfigurableChildrenDirectAccess': true,
+    'alwaysSyncPlatformPricesOver': false,
+    'clearPricesBeforePlatformSync': false,
+    'waitForPlatformSync': false,
+    'endpoint': '$storefront_urlapi/api/product',
+    'defaultFilters': ['color', 'size', 'price', 'erin_recommends']
+  },
+  'orders': {
+    'endpoint': '$storefront_urlapi/api/order',
+    'payment_methods_mapping': {
+    }
+  },
+  'users': {
+    'endpoint': '$storefront_urlapi/api/user'
+  },
+  'marketplace': {
+    'endpoint': '$storefront_urlapi/api/ext'
+  },
+  'stock': {
+    'synchronize': true,
+    'allowOutOfStockInCart': true,
+    'endpoint': '$storefront_urlapi/api/stock'
+  },
+  'images': {
+    'baseUrl': '$storefront_image_baseUrl',
+    'productPlaceholder': '/assets/placeholder.jpg'
+  },
+  'install': {
+    'is_local_backend': true,
+    'backend_dir': '../vue-storefront-api'
+  },
+  'demomode': true,
+  'tax': {
+    'defaultCountry': 'PL',
+    'defaultRegion': '',
+    'calculateServerSide': true
+  },
+  'i18n': {
+    'defaultCountry': 'US',
+    'defaultLanguage': 'EN',
+    'availableLocale': ['en-US','de-DE','fr-FR','es-ES','nl-NL'],
+    'defaultLocale': 'en-US',
+    'currencyCode': 'USD',
+    'currencySign': '$',
+    'dateFormat': 'HH:mm D/M/YYYY'
+  },
+  'mailchimp': {
+    'endpoint': '$storefront_urlapi/api/ext/mailchimp-subscribe/subscribe'
+  },
+  'theme': 'trg',
+  'analytics': {
+    'id': false
+  },
+  'stripe': {
+    'api_key': 'my_example_api_key'
+  }
+}

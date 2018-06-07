@@ -1,0 +1,378 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: trg-vueprod-storefront
+  labels:
+    app: trg-vueprod-storefront
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trg-vueprod-storefront
+  template:
+    metadata:
+      labels:
+        app: trg-vueprod-storefront
+    spec:
+      containers:
+      - image: us.gcr.io/silken-setting-199612/storefront:latest
+        imagePullPolicy: Always
+        name: trg-vueprod-storefront
+        env:
+        - name: "storefront_urlapi"
+          value: "https://trg.kt-team.de"
+        - name: "storefront_create_endpoint"
+          value: "https://trg.kt-team.de/api/cart/create?token={{token}}"
+        - name: "storefront_updateitem_endpoint"
+          value: "https://trg.kt-team.de/api/cart/update?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_deleteitem_endpoint"
+          value: "https://trg.kt-team.de/api/cart/delete?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_pull_endpoint"
+          value: "https://trg.kt-team.de/api/cart/pull?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_totals_endpoint"
+          value: "https://trg.kt-team.de/api/cart/totals?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_paymentmethods_endpoint"
+          value: "https://trg.kt-team.de/api/cart/payment-methods?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_shippingmethods_endpoint"
+          value: "https://trg.kt-team.de/api/cart/shipping-methods?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_shippinginfo_endpoint"
+          value: "https://trg.kt-team.de/api/cart/shipping-information?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_collecttotals_endpoint"
+          value: "https://trg.kt-team.de/api/cart/collect-totals?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_deletecoupon_endpoint"
+          value: "https://trg.kt-team.de/api/cart/delete-coupon?token={{token}}&cartId={{cartId}}"
+        - name: "storefront_applycoupon_endpoint"
+          value: "https://trg.kt-team.de/api/cart/apply-coupon?token={{token}}&cartId={{cartId}}&coupon={{coupon}}"
+        - name: "COLUMNS"
+          value: "300"
+        - name: "dateFormat"
+          value: "HH:mm D/M/YYYY"
+        - name: "storefront_image_baseUrl"
+          value: "http://demo.vuestorefront.io/img/"
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: catalog
+          mountPath: /repo/storefront/core/assets/catalog
+      volumes:
+        - name: catalog
+          persistentVolumeClaim:
+            claimName: test-storefront-catalog
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: trg-vueprod-storefront
+spec:
+  selector:
+    app: trg-vueprod-storefront
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: trg-vueprod-api
+  labels:
+    app: trg-vueprod-api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trg-vueprod-api
+  template:
+    metadata:
+      labels:
+        app: trg-vueprod-api
+    spec:
+      containers:
+      - image: us.gcr.io/silken-setting-199612/api:latest
+        imagePullPolicy: Always
+        name: trg-vueprod-api
+        env:
+        - name: "es"
+          value: "trg-vueprod-elastic-first:9200"
+        - name: "magento_es"
+          value: "trg-prod-elastic:9200"
+        - name: "pim_es_host_port"
+          value: "trg-pim-elastic:9200"
+        - name: "pim_web_host_port"
+          value: "trg-pim-web:8222"
+        - name: "pim_api_client"
+          value: "1_1tws2689qzy88kkw4sw488w0gc48wsgkosskgog0gco884wsg4"
+        - name: "pim_api_secret"
+          value: "35pcqqwwcw840kc8ksgc40k840g40sggcssckgksoko4ss088s"
+        - name: "pim_user"
+          value: "admin"
+        - name: "pim_password"
+          value: "admin"
+        - name: "api_magento2_url"
+          value: "http://magento2.demo-1.xyz.com"
+        - name: "api_magento2_imgUrl"
+          value: "http://magento2.demo-1.xyz.com/media"
+        - name: "api_magento2_magentoUserName"
+          value: "admin"
+        - name: "api_magento2_magentoUserPassword"
+          value: "kt-teamde1"
+        - name: "api_magento2_httpUserName"
+          value: ""
+        - name: "api_magento2_httpUserPassword"
+          value: ""
+        - name: "api_magento2_api_url"
+          value: "http://demo-magento2.vuestorefront.io/rest"
+        - name: "api_magento2_api_consumerKey"
+          value: "byv3730rhoulpopcq64don8ukb8lf2gq"
+        - name: "api_magento2_api_consumerSecret"
+          value: "u9q4fcobv7vfx9td80oupa6uhexc27rb"
+        - name: "api_magento2_api_accessToken"
+          value: "040xx3qy7s0j28o3q0exrfop579cy20m"
+        - name: "api_magento2_api_accessTokenSecret"
+          value: "7qunl3p505rubmr7u1ijt7odyialnih9"
+        - name: "redis_host"
+          value: "trg-vueprod-redis"
+        - name: "COLUMNS"
+          value: "300"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: cacheimg
+          mountPath: /tmp
+        - name: configs-cron
+          mountPath: "/etc/cron.d/"
+      volumes:
+        - name: cacheimg
+          persistentVolumeClaim:
+            claimName: prod-storefront-imagecache
+        - name: configs-cron
+          configMap:
+            name: cron-vueprod-api-config
+            defaultMode: 0644
+            items:
+            - key: cron_vueprod
+              path: cron_vueprod_api
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: trg-vueprod-api
+spec:
+  selector:
+    app: trg-vueprod-api
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: trg-vueprod-elastic-first
+  name: trg-vueprod-elastic-first
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trg-vueprod-elastic-first
+  template:
+    metadata:
+      labels:
+        app: trg-vueprod-elastic-first
+      name: trg-vueprod-elastic-first
+    spec:
+      containers:
+      - image: elasticsearch:5.5.2
+        imagePullPolicy: Always
+        name: trg-vueprod-elastic-first
+        env:
+        - name: "cluster.name"
+          value: "docker-cluster"
+        - name: "bootstrap.memory_lock"
+          value: "true"
+        - name: "ES_JAVA_OPTS"
+          value: "-Xms512m -Xmx512m"
+        - name: "COLUMNS"
+          value: "300"
+        ports:
+        - containerPort: 9200
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: elastic
+          mountPath: /usr/share/elasticsearch/data
+        - name: config-volume
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          subPath: elasticsearch.yml
+      volumes:
+        - name: elastic
+          persistentVolumeClaim:
+            claimName: persistent-prod-storefront-elastic1
+        - name: config-volume
+          configMap:
+            name: trg-vueprod-es1-config
+#            defaultMode: 0777
+            items:
+            - key: trg-vueprod-es1
+              path: elasticsearch.yml
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: trg-vueprod-elastic-first
+spec:
+  selector:
+    app: trg-vueprod-elastic-first
+  ports:
+  - protocol: TCP
+    port: 9200
+    targetPort: 9200
+  type: ClusterIP
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: trg-vueprod-elastic-second
+  name: trg-vueprod-elastic-second
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trg-vueprod-elastic-second
+  template:
+    metadata:
+      labels:
+        app: trg-vueprod-elastic-second
+      name: trg-vueprod-elastic-second
+    spec:
+      containers:
+      - image: elasticsearch:5.5.2
+        imagePullPolicy: Always
+        name: trg-vueprod-elastic-second
+        env:
+        - name: "cluster.name"
+          value: "docker-cluster"
+        - name: "bootstrap.memory_lock"
+          value: "true"
+        - name: "ES_JAVA_OPTS"
+          value: "-Xms512m -Xmx512m"
+        - name: "discovery.zen.ping.unicast.hosts"
+          value: "trg-vueprod-elastic-first"
+        ports:
+        - containerPort: 9200
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: elastic
+          mountPath: /usr/share/elasticsearch/data
+      volumes:
+        - name: elastic
+          persistentVolumeClaim:
+            claimName: persistent-prod-storefront-elastic2
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: trg-vueprod-elastic-second
+spec:
+  selector:
+    app: trg-vueprod-elastic-second
+  ports:
+  - protocol: TCP
+    port: 9200
+    targetPort: 9200
+  type: ClusterIP
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: trg-vueprod-redis
+  name: trg-vueprod-redis
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trg-vueprod-redis
+  template:
+    metadata:
+      labels:
+        app: trg-vueprod-redis
+      name: trg-vueprod-redis
+    spec:
+      containers:
+      - image: us.gcr.io/silken-setting-199612/redis:latest
+        imagePullPolicy: Always
+        name: trg-vueprod-redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - name: redis-prod
+          mountPath: /data
+      volumes:
+        - name: redis-prod
+          persistentVolumeClaim:
+            claimName: prod-storefront-redis
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: trg-vueprod-redis
+spec:
+  selector:
+    app: trg-vueprod-redis
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
+  type: ClusterIP

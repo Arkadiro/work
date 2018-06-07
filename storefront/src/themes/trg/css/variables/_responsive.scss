@@ -1,0 +1,19 @@
+$screen__xxs: 320px;
+$screen__xs: 480px;
+$screen__s: 640px;
+$screen__m: 768px;
+$screen__l: 1024px;
+$screen__xl: 1200px;
+$screen__xxl: 1280px;
+
+.no-mobile {
+    @media ( max-width: $screen__m ) {
+        display: none;
+    }
+}
+
+.no-desktop {
+    @media ( min-width: ($screen__m + 1)) {
+        display: none;
+    }
+}

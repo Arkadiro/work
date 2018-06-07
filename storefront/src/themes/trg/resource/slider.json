@@ -1,0 +1,29 @@
+{
+  "slides": [
+    {
+      "title": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "image": "/assets/baner_1.jpg",
+      "link": "/c/women-20",
+      "tag": "carousel"
+    },
+    {
+      "title": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "image": "/assets/baner_1.jpg",
+      "link": "/c/men-11",
+      "tag": "carousel"
+    },
+    {
+      "title": "Fur coat",
+      "subtitle": "Product category",
+      "button_text": "See Details",
+      "image": "/assets/5.jpg",
+      "link": "/c/men-11",
+      "tag": "banner"
+    }
+  ],
+  "total": "3"
+}

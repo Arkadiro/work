@@ -1,0 +1,178 @@
+{
+  "mappings": {
+    "pim_catalog_category": {
+      "dynamic_templates": [
+        {
+          "values": {
+            "path_match": "values.*",
+            "mapping": {
+              "type": "text"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "code": {
+          "type": "keyword"
+        },
+        "parent": {
+          "type": "text"
+        },
+        "level": {
+          "type": "text"
+        },
+        "root": {
+          "type": "text"
+        },
+        "labels": {
+          "properties": {
+            "ru_RU": {
+              "type": "text",
+              "analyzer": "autocomplete",
+              "fields": {
+                "keyword": {
+                  "ignore_above": 256,
+                  "type": "keyword"
+                }
+              }
+            },
+            "en_US": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "ignore_above": 256,
+                  "type": "keyword"
+                }
+              }
+            },
+            "fr_FR": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "ignore_above": 256,
+                  "type": "keyword"
+                }
+              }
+            },
+            "de_DE": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "ignore_above": 256,
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "index": {
+      "mapping": {
+        "total_fields": {
+          "limit": "10000"
+        }
+      },
+      "number_of_shards": "5",
+      "analysis": {
+        "filter": {
+          "russian_stop": {
+            "type": "stop",
+            "stopwords": "а,без,более,бы,был,была,были,было,быть,в,вам,вас,весь,во,вот,все,всего,всех,вы,где,да,даже,для,до,его,ее,если,есть,еще,же,за,здесь,и,из,или,им,их,к,как,ко,когда,кто,ли,либо,мне,может,мы,на,надо,наш,не,него,нее,нет,ни,них,но,ну,о,об,однако,он,она,они,оно,от,очень,по,под,при,с,со,так,также,такой,там,те,тем,то,того,тоже,той,только,том,ты,у,уже,хотя,чего,чей,чем,что,чтобы,чье,чья,эта,эти,это,я,a,an,and,are,as,at,be,but,by,for,if,in,into,is,it,no,not,of,on,or,such,that,the,their,then,there,these,they,this,to,was,will,with"
+          },
+          "russian_keywords": {
+            "type": "keyword_marker",
+            "keywords": ["пример"]
+          },
+          "russian_stemmer": {
+            "type": "stemmer",
+            "language": "russian"
+          },
+          "autocomplete_filter": {
+            "type": "ngram",
+            "min_gram": "1",
+            "max_gram": "20",
+            "token_chars": "[\"letter\",\"digit\"]"
+          },
+          "ascii_folding": {
+            "type": "asciifolding",
+            "preserve_original": "true"
+          }
+        },
+        "normalizer": {
+          "text_normalizer": {
+            "filter": [
+              "lowercase"
+            ]
+          },
+          "textarea_normalizer": {
+            "filter": [
+              "lowercase"
+            ],
+            "type": "custom"
+          },
+          "identifier_normalizer": {
+            "filter": [
+              "lowercase"
+            ]
+          },
+          "family_normalizer": {
+            "filter": [
+              "lowercase"
+            ]
+          }
+        },
+        "analyzer": {
+          "textarea_analyzer": {
+            "filter": [
+              "lowercase"
+            ],
+            "char_filter": [
+              "html_strip",
+              "newline_pattern"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          },
+          "russian": {
+            "tokenizer":  "standard",
+            "filter": [
+              "lowercase",
+              "russian_stop",
+              "russian_keywords",
+              "russian_stemmer"
+            ]
+          },
+          "autocomplete": {
+            "tokenizer": "lowercase",
+            "filters": {
+              "filter": [
+                "lowercase",
+                "russian_stop",
+                "russian_keywords",
+                "russian_stemmer",
+                "autocomplete_filter",
+                "trim",
+                "elision",
+                "ascii_folding"
+              ]
+            },
+            "char_filters": {
+              "char_filter": "html_strip"
+            }
+          }
+        },
+        "char_filter": {
+          "newline_pattern": {
+            "pattern": "\\\\n",
+            "type": "pattern_replace",
+            "replacement": ""
+          }
+        }
+      },
+      "number_of_replicas": "1"
+    }
+  }
+}

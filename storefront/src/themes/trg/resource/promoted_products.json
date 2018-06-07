@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Bag",
+    "image": "/assets/Bag.jpg",
+    "link": "/magazine",
+    "subname": "Louis Vuitton",
+    "buttonText": "See details",
+    "bgcolor": "#f3f4f6",
+    "textColor": "#48475A",
+    "buttonColor": "#EA6C6A",
+    "promoted": false
+  },
+  {
+    "name": "MacBook here",
+    "image": "/assets/home/macbookpro.png",
+    "link": "/magazine",
+    "price": 990,
+    "buttonText": "Shop Now",
+    "bgcolor": "#48475A",
+    "textColor": "#fff",
+    "buttonColor": "#3399FF",
+    "promoted": true
+  },
+  {
+    "name": "More sound",
+    "image": "/assets/home/macbookpro.png",
+    "link": "/magazine",
+    "price": 600,
+    "buttonText": "Shop Now",
+    "bgcolor": "#48475A",
+    "textColor": "#fff",
+    "buttonColor": "#3399FF",
+    "promoted": true
+  },
+  {
+    "name": "MacBook here",
+    "image": "/assets/home/macbookpro.png",
+    "link": "/magazine",
+    "price": 800,
+    "buttonText": "Shop Now",
+    "bgcolor": "#48475A",
+    "textColor": "#fff",
+    "buttonColor": "#3399FF",
+    "promoted": true
+  }
+]

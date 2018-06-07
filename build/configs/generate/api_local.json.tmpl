@@ -1,0 +1,78 @@
+{
+  'port': 8080,
+  'esHost': '$es',
+  'esIndexes': [
+    'vue_storefront_catalog',
+    'vue_storefront_category',
+    'vue_storefront_catalog'
+  ],
+  'objHashSecret': '__SECRET_CHANGE_ME__',
+  'tax': {
+    'defaultCountry': 'PL',
+    'defaultRegion': '',
+    'calculateServerSide': true,
+    'alwaysSyncPlatformPricesOver': false,
+    'usePlatformTotals': true
+  },
+  'esUser': '',
+  'esPassword': '',
+  'bodyLimit': '100kb',
+  'corsHeaders': [
+    'Link'
+  ],
+  'kue': { 'redis': {'host': '$redis_host', 'port': '6379'}},
+
+  'platform': 'magento2',
+  'registeredExtensions': ['mailchimp-subscribe', 'marketplace'],
+
+  'extensions': {
+    'mailchimp': {
+      'listId': 'e06875a7e1',
+      'apiKey': 'a9a3318ea7d30f5c5596bd4a78ae0985-us3',
+      'apiUrl': 'https://us3.api.mailchimp.com/3.0'
+    }
+  },
+
+  'magento2': {
+    'url': '$api_magento2_url',
+    'imgUrl': '$api_magento2_imgUrl',
+    'magentoUserName': '$api_magento2_magentoUserName',
+    'magentoUserPassword': '$api_magento2_magentoUserPassword',
+    'httpUserName': '$api_magento2_httpUserName',
+    'httpUserPassword': '$api_magento2_httpUserPassword',
+    'api': {
+      'url': '$api_magento2_api_url',
+      'consumerKey': '$api_magento2_api_consumerKey',
+      'consumerSecret': '$api_magento2_api_consumerSecret',
+      'accessToken': '$api_magento2_api_accessToken',
+      'accessTokenSecret': '$api_magento2_api_accessTokenSecret'
+    }
+  },
+  'imageable': {
+    'namespace': '',
+    'maxListeners': 512,
+    'imageSizeLimit': 1024,
+    'timeouts': {
+      'convert': 5000,
+      'identify': 100,
+      'download': 1000
+    },
+    'whitelist': {
+      'allowedHosts': ['.*divante.pl', '.*vuestorefront.io'],
+      'trustedHosts': ['.*divante.pl', '.*vuestorefront.io']
+    },
+    'keepDownloads': true,
+    'maxDownloadCacheSize': 1000,
+    'tmpPathRoot': '/tmp'
+  },
+  'productsWorker': {
+    'pimElastic': '$pim_es_host_port',
+    'pim': {
+      'host': '$pim_web_host_port',
+      'client': '$pim_api_client',
+      'secret': '$pim_api_secret',
+      'username': '$pim_user',
+      'password': '$pim_password'
+    }
+  }
+}

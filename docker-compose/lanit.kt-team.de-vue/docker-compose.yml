@@ -1,0 +1,87 @@
+  es1:
+    image: d.kt-team.de/elasticsearch:5.5
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - /home/tmp/lanit-vue/es1/data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+  es2:
+    image: d.kt-team.de/elasticsearch:5.5
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=es1"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - /home/tmp/lanit-vue/es2/data:/usr/share/elasticsearch/data
+    links:
+    - es1
+  
+  redis:  
+    image: redis
+  vapi:
+    image: d.kt-team.de/lanit/api
+    volumes:
+    - /home/tmp/lanit-vue/build/configs/lanit.kt-team.de/api/config.json:/repo/api/src/config.json
+    - /home/tmp/lanit-vue/cache-img:/tmp
+
+    links:
+    - es1
+    - es2
+    - redis
+    ports:
+    - 8081:8080
+  storefront:
+    image: d.kt-team.de/lanit/storefront
+    volumes:
+    - /home/tmp/lanit-vue/build/configs/lanit.kt-team.de/storefront/config.json:/repo/storefront/src/config.json
+#    command: sleep 999999
+    ports:
+    - 3000:3000
+    links:
+    - vapi
+    - es1
+    - es2
+    - redis
+  mage2nosql:
+    image: d.kt-team.de/lanit/mage2nosql
+#    command: sleep 999999
+    volumes:
+    - /home/tmp/lanit-vue/build/configs/lanit.kt-team.de/mage2nosql/config.js:/repo/mage2nosql/src/config.js
+    links:
+    - vapi
+    - es1
+    - es2
+    - redis
+
+  kue:
+    image: d.kt-team.de/kue-dashboard
+    ports:
+    - "8082:80"
+    environment:
+    - REDIS_URL=redis://redis:6379
+    links:
+    - redis
+
+  kibana:
+    image: d.kt-team.de/kibana:5.5
+    ports:
+    - "5614:5601"
+    environment:
+    - ELASTICSEARCH_URL=http://es1:9200
+    links:
+    - es1
+

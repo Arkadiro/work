@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Automotive",
+    "sub": [
+      "Automotive Accessories",
+      "Automotive Parts & Accessories",
+      "Automotive Tools"
+    ],
+    "img": "/assets/categories/Automotive.jpg"
+  },
+  {
+    "name": "Baby",
+    "sub": [
+    "Baby Food & Formula",
+    "Baby Monitors",
+    "Bedding & DГ©cor",
+    "Car Seats",
+    "Diapers & Wipes",
+    "Health & Safety",
+    "Nursing & Feeding Supplies",
+    "Strollers",
+    "Walkers, Swings & Bouncers"],
+    "img": "/assets/categories/Baby.jpg"
+  },
+  {
+    "name": "Books",
+    "img": "/assets/categories/Books.jpg"
+  },
+  {
+    "name":"Clothing, Shoes & Accessories",
+      "sub": [
+      "Backpacks, Bags, Wallets & Accessories",
+      "Clothing",
+      "Shoes"],
+      "img": "/assets/categories/Clothing,Shoes&Accessories.jpg"
+  },
+  {
+    "name": "Electronics",
+    "sub": [
+      "Batteries",
+      "Cameras",
+      "Car Audio / Video & Electronics",
+      "Cellular Phones",
+      "Computers",
+      "Digital Picture Frames",
+      "Drones & Quadcopters",
+      "GPS & Navigation",
+      "Headphones & Portable Speakers",
+      "Home Audio & Theater",
+      "Home Phones",
+      "Portable Audio",
+      "Printers",
+      "Security & Surveillance",
+      "Tablets & eReaders",
+      "TV",
+      "Video Games",
+      "Wearable Technology"],
+      "img": "/assets/categories/Electronics.jpg"
+  },
+  {
+    "name": "Food",
+    "sub": [
+    "Gourmet Grocery",
+    "Pantry"],
+    "img": "/assets/categories/Food.jpg"
+  },
+  {
+    "name": "Furniture",
+      "sub": [
+      "Baby",
+      "Bathroom",
+      "Bedroom",
+      "Dining Room & Kitchen",
+      "Kids",
+      "Living Room",
+      "Mattresses",
+      "Office",
+      "Patio",
+      "TV Stands, Wall Mounts & Entertainment Centers"],
+      "img": "/assets/categories/Furniture.jpg"
+  },
+  {
+    "name": "GIft / Prepaid / SIM & Activation Cards",
+    "img": "/assets/categories/SIM&ActivationCards.jpg"
+  },
+  {
+    "name": "Industrial Supplies",
+    "sub": [
+    "Dental, Medical, Lab & Scientific Equipment & Supplies",
+    "Food Service Equipment & Supplies",
+    "Retail Equipment & Supplies",
+    "Safety Clothing & Equipment"],
+    "img": "/assets/categories/IndustrialSupplies.jpg"
+  },
+  {
+    "name": "Home Improvement",
+      "sub": [
+      "Generators",
+      "Hardware",
+      "Home Automation",
+      "Kitchen & Bath Fixtures",
+      "Light Bulbs",
+      "Pressure Washers",
+      "Tools"],
+      "img": "/assets/categories/HomeImprovement.jpg"
+    },
+  {
+    "name": "Home",
+      "sub": [
+      "Appliances",
+      "Arts & Crafts",
+      "Bath",
+      "Bedding",
+      "Cleaning Supplies",
+      "Curtains & Window Coverings",
+      "DГ©cor",
+      "Floor Care",
+      "Heating & Cooling",
+      "Kitchen & Dining",
+      "Lighting & Light Fixtures",
+      "Luggage",
+      "Rugs",
+      "Safes",
+      "Security & Safety",
+      "Smoke Alarms & CO Detectors",
+      "Storage & Organization",
+      "Vacuums"],
+      "img": "/assets/categories/Home.jpg"
+    },
+    {"name": "Health & Beauty",
+      "sub": [
+      "Bath & Body",
+      "Canes, Walkers, Wheelchairs & Mobility",
+      "Diet, Nutrition, Vitamins & Supplements",
+      "First Aid & Home Treatment",
+      "Fragrances",
+      "Hair Care",
+      "Home Health Care",
+      "Makeup",
+      "Massagers & Spa",
+      "Medical Devices & Daily Living Aids",
+      "Oral Care",
+      "Sexual Wellness & Family Planning",
+      "Shaving",
+      "Vision & Optical"],
+      "img": "/assets/categories/Health&Beauty.jpg"
+    },
+    {"name": "Jewelry",
+      "sub": [
+      "Bracelets",
+      "Cufflinks, Tie Clips, Brooch",
+      "Earrings",
+      "Jewelry Storage",
+      "Loose Stones",
+      "Necklaces",
+      "Rings",
+      "Sets",
+      "Watches (NOT Wearable Tech)"],
+      "img": "/assets/categories/Jewelry.jpg"
+    },
+    {"name": "Movies & TV Media",
+      "sub": [
+      "Blu-ray Discs",
+      "Combo Pack (DVD / BRD)",
+      "DVD Discs"],
+      "img": "/assets/categories/Movies&TVMedia.jpg"
+    },
+    {"name": "Music",
+      "sub": [
+      "Music CDs",
+      "Musical Instruments"],
+      "img": "/assets/categories/Music.jpg"
+    },
+    {"name": "Office",
+      "sub": [
+      "Office Electronics",
+      "Office Supplies"],
+      "img": "/assets/categories/Office.jpg"
+    },
+    {"name":"Party & Occasions",
+      "sub": [
+      "Costumes",
+      "Decorations & Favors",
+      "Disposable Tableware",
+      "Giftwrap & Supplies",
+      "Stationery & Invitations"],
+      "img": "/assets/categories/Party&Occasions.jpg"
+      },
+    {"name":"Sports, Fitness & Outdoors",
+      "sub": [
+      "Boats & Water Sports",
+      "Camping & Hiking",
+      "Cycling & Bicycles",
+      "Exercise & Fitness",
+      "Fishing & Wildlife",
+      "Game Room",
+      "Golf",
+      "Hunting",
+      "Optics / Binoculars",
+      "Outdoor Sports",
+      "Scooters, Skateboards & Skates",
+      "Shooting",
+      "Tennis & Racquet",
+      "Trampolines"],
+      "img": "/assets/categories/SportsFitness&Outdoors.jpg"
+      },
+    {"name":"Toys",
+      "sub": [
+      "Action Figures",
+      "Baby Toys",
+      "Boardgames & Puzzles",
+      "Dolls",
+      "Instruments",
+      "Learning & Education",
+      "Pretend & Dress-Up",
+      "Ride On Toys",
+      "Stuffed Animals",
+      "Vehicles, Trains & RC",
+      "Water Guns & Foam Blasters"],
+      "img": "/assets/categories/Toys.jpg"
+      },
+    {"name": "Pet Toys & Pet Supplies",
+      "img": "/assets/categories/PetToys&PetSupplies.jpg"},
+    {"name":"Patio & Garden",
+      "sub": [
+      "Grills & Outdoor Cooking",
+      "Hot Tubs & Saunas",
+      "Outdoor Play",
+      "Patio & Outdoor Lighting / DГ©cor",
+      "Pools & Water Fun"],
+      "img": "/assets/categories/Patio&Garden.jpg"
+    },
+    {"name": "Adult",
+      "img": "/assets/categories/Toys.jpg"}
+  
+]

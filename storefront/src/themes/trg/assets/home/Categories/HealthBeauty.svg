@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="60px" viewBox="0 0 20 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Health &amp; Beauty</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="index2" transform="translate(-640.000000, -4290.000000)" fill="#3399FF">
+            <g id="Health-&amp;-Beauty" transform="translate(640.000000, 4289.000000)">
+                <path d="M2,41 L18,41 L18,39 L2,39 L2,41 Z M2,59 L18,59 L18,43 L2,43 L2,59 Z M4,37 L16,37 L16,19 L4,19 L4,37 Z M6,10.414 L12.94,3.474 C13.628,4.45 14,5.61 14,6.828 L14,17 L6,17 L6,10.414 Z M19,37 L18,37 L18,18 C18,17.448 17.552,17 17,17 L16,17 L16,6.828 C16,4.736 15.186,2.772 13.708,1.292 C13.316,0.902 12.684,0.902 12.292,1.292 L4.292,9.292 C4.106,9.48 4,9.734 4,10 L4,17 L3,17 C2.448,17 2,17.448 2,18 L2,37 L1,37 C0.448,37 0,37.448 0,38 L0,60 C0,60.552 0.448,61 1,61 L19,61 C19.552,61 20,60.552 20,60 L20,38 C20,37.448 19.552,37 19,37 Z" id="Fill-1"></path>
+                <path d="M13,21 C12.448,21 12,21.448 12,22 L12,34 C12,34.552 12.448,35 13,35 C13.552,35 14,34.552 14,34 L14,22 C14,21.448 13.552,21 13,21" id="Fill-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

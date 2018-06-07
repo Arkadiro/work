@@ -1,0 +1,69 @@
+[
+  {
+    "name": "m.Video",
+    "delivery": {
+      "duration": [3,5],
+      "cost": "free"
+    },
+    "price": "849,90",
+    "available": true
+  },
+  {
+    "name": "Walmart",
+    "delivery": {
+      "duration": [1],
+      "cost": ""
+    },
+    "price": "855,90",
+    "available": ""
+  },
+  {
+    "name": "Media Markt Moscow",
+    "delivery": {
+      "duration": [3,5],
+      "cost": "$19,90"
+    },
+    "price": "799,00",
+    "available": true
+  },
+  {
+    "name": "Svyasnoy",
+    "delivery": {
+      "duration": [3,5],
+      "cost": "$19,90"
+    },
+    "price": "666,60",
+    "sale": {
+      "oldprice": "999,90",
+      "perecent": "-30"
+    },
+    "available": ""
+  },
+  {
+    "name": "APPLE",
+    "delivery": {
+      "duration": [1],
+      "cost": ""
+    },
+    "price": "849,90",
+    "available": ""
+  },
+  {
+    "name": "Media Markt",
+    "delivery": {
+      "duration": [3,5],
+      "cost": "$19,90"
+    },
+    "price": "849,90",
+    "available": true
+  },
+  {
+    "name": "MTS Mobile systems",
+    "delivery": {
+      "duration": [1],
+      "cost": ""
+    },
+    "price": "849,90",
+    "available": ""
+  }
+]

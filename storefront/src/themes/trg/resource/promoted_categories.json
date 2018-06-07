@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Канцтовары",
+    "image": "/assets/home/stationery.png",
+    "link": "/c/men-11"
+  },
+  {
+    "name": "Продукты питания",
+    "image": "/assets/home/food.png",
+    "link": "/c/gear-3"
+  },
+  {
+    "name": "Строительная продукция",
+    "image": "/assets/home/construction-products.png",
+    "link": "/c/men-11"
+  },
+  {
+    "name": "Работы и услуги",
+    "image": "/assets/home/services.png",
+    "link": "/c/gear-3"
+  }
+]

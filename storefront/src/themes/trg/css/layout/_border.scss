@@ -1,0 +1,57 @@
+// Pixel sizes
+$border-px: 1;
+
+// Radius
+$border-radius: (
+  square: 0,
+  circle: 50%,
+  round4: 4px,
+  round3: 3px
+);
+
+@mixin border {
+  @each $i in $border-px {
+    .brdr-#{$i} {
+      border: #{$i}px solid;
+    }
+    .brdr-top-#{$i} {
+      border-top-width: #{$i}px;
+      border-top-style: solid;
+    }
+    .brdr-bottom {
+      border-bottom-width: #{$i}px;
+      border-bottom-style: solid;
+    }
+  }
+  @for $i from 0 to 30 {
+    .brdr-r-top-right-#{$i} {
+      border-top-right-radius: #{$i}px;
+    }
+    .brdr-r-bottom-right-#{$i} {
+      border-bottom-right-radius: #{$i}px;
+    }
+    .brdr-r-bottom-left-#{$i} {
+      border-bottom-left-radius: #{$i}px;
+    }
+    .brdr-r-top-left-#{$i} {
+      border-top-left-radius: #{$i}px;
+    }
+    .brdr-r-#{$i} {
+      border-radius: #{$i}px;
+    }
+  }
+  @each $name, $value in $border-radius {
+    .brdr-#{$name} {
+      border-radius: #{$value};
+    }
+  }
+  @include color-selectors(map_merge($colors, $colors-border), 'brdr-cl', 'border-color');
+  @include color-selectors($colors-theme, 'brdr-cl-th', 'border-color');
+  @include color-selectors($colors-background, 'brdr-cl-bg', 'border-color');
+}
+
+.brdr-none {
+  border: none;
+}
+
+@include border;

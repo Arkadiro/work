@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    app: nfs-production-cluster
+  creationTimestamp: null
+  name: nfs-production-cluster
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nfs-production-cluster
+    spec:
+      containers:
+      - name: nfs-production-cluster
+        image: gcr.io/google_containers/volume-nfs:0.8
+        ports:
+          - name: nfs
+            containerPort: 2049
+          - name: mountd
+            containerPort: 20048
+          - name: rpcbind
+            containerPort: 111
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /exports
+          name: nfs-production-cluster
+          readOnly: false
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 15
+
+      volumes:
+       -  name: nfs-production-cluster
+          persistentVolumeClaim: 
+            claimName: nfs-production
+

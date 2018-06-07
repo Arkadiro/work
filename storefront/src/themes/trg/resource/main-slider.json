@@ -1,0 +1,20 @@
+{
+  "slides": [
+    {
+      "image": "/assets/home/main-slider/slide_1.jpg",
+      "link": "/magazine"
+    },
+    {
+      "image": "/assets/home/main-slider/slide_1.jpg",
+      "link": "/magazine"
+    },
+    {
+      "image": "/assets/home/main-slider/slide_1.jpg",
+      "link": "/magazine"
+    },
+    {
+      "image": "/assets/baner_12.jpg",
+      "link": "/magazine"
+    }
+  ]
+}

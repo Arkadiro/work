@@ -1,0 +1,67 @@
+dimg 'storefront' do
+    docker.from 'd.kt-team.de/trg/vue:base'
+    mount '/var/cache/' do
+      from :build_dir
+    end
+
+    git do
+      add '/' do
+        to '/repo'
+              stage_dependencies.install "build/scripts/*.sh"
+              stage_dependencies.install "storefront/*"
+              stage_dependencies.install "build/configs/*"
+        end
+    end
+
+    shell do
+      install do
+      run "cp -rf /repo/build/scripts /root/scripts",
+          "chmod +x /root/scripts/*.sh"
+
+      run 'cd /repo/storefront',                       
+          'cp -rf /repo/build/configs/storefront/local.json /repo/storefront/config/local.json',
+          'npm install',
+          'yarn run build',
+          'echo `date` > /repo/storefront/version_install.txt'
+      end
+      end
+    docker.expose 3000
+    docker.volume "/repo/storefront"
+    docker.workdir "/repo/storefront"
+    docker.cmd  ["/root/scripts/start_storefront.sh"]
+  end
+dimg 'api' do
+    docker.from 'd.kt-team.de/vue:base'
+    mount '/var/cache/' do
+      from :build_dir
+    end
+    
+    git do
+      add '/' do
+        to '/repo'
+              stage_dependencies.install "build/scripts/*.sh"
+              stage_dependencies.install "build/configs/api/*"
+              stage_dependencies.install "api/*"
+              stage_dependencies.install "mage2nosql/*"
+        end
+    end
+
+    shell do
+      install do
+      run "cp -rf /repo/build/scripts /root/scripts",
+          "chmod +x /root/scripts/*.sh"
+
+      run 'cd /repo/api',                       
+          'cp -rf /repo/build/configs/api/local.json /repo/api/config/local.json',
+          "cp -rf /repo/build/configs/api/supervisor/supervisord.conf /etc/",
+          'cp -rf /repo/build/configs/mage2nosql/config.js /repo/mage2nosql/src/config.js',
+          'npm install',
+          'yarn run build',
+          'echo `date` > /repo/api/version_install.txt'
+      end
+      end
+    docker.expose 8080
+    docker.volume "/repo/api"
+    docker.workdir "/repo/api"
+    docker.cmd  ["/root/scripts/start_api.sh"]
+  end

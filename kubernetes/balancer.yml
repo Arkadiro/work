@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: balancer
+  name: balancer
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: balancer
+  template:
+    metadata:
+      labels:
+        app: balancer
+      name: balancer
+    spec:
+      containers:
+#      - image: us.gcr.io/silken-setting-199612/nginx:1.12.1
+      - image: us.gcr.io/silken-setting-199612/nginx:1.12.1-test
+        imagePullPolicy: Always
+        name: balancer
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+#        - name: config-volume
+#          mountPath: /etc/nginx/conf.d
+        - name: balancer
+          mountPath: /etc/nginx1
+      volumes:
+#        - name: config-volume
+#           configMap:
+#               name: balancer-nginx-config
+        - name: balancer
+          persistentVolumeClaim:
+            claimName: pv-balancer
+
+      imagePullSecrets:
+      - name: regcred
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

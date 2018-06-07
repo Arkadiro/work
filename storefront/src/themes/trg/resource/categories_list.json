@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Electronics",
+    "image": "assets/home/Categories/Electronics.svg"
+  },
+  {
+    "name": "Automotive",
+    "image": "assets/home/Categories/Automotive.svg"
+  },
+  {
+    "name": "Baby",
+    "image": "assets/home/Categories/Baby.svg"
+  },
+  {
+    "name": "Books",
+    "image": "assets/home/Categories/Books.svg"
+  },
+  {
+    "name": "Food",
+    "image": "assets/home/Categories/Food.svg"
+  },
+  {
+    "name": "Adult",
+    "image": "assets/home/Categories/Adult.svg"
+  },
+  {
+    "name": "Furniture",
+    "image": "assets/home/Categories/Furniture.svg"
+  },
+  {
+    "name": "Health & Beauty",
+    "image": "assets/home/Categories/HealthBeauty.svg"
+  },
+  {
+    "name": "Home",
+    "image": "assets/home/Categories/Home.svg"
+  },
+  {
+    "name": "Industrial Supplies",
+    "image": "assets/home/Categories/IndustrialSupplies.svg"
+  },
+  {
+    "name": "Jewelry",
+    "image": "assets/home/Categories/Jewelry.svg"
+  },
+  {
+    "name": "Music",
+    "image": "assets/home/Categories/Music.svg"
+  }
+]

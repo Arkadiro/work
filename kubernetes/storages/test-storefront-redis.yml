@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: test-storefront-redis
+spec:
+  storageClassName: nfs-class
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.47.240.223
+    path: "/exports/storefront-test/data"
+

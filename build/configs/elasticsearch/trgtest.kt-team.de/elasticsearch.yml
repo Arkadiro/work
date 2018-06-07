@@ -1,0 +1,8 @@
+http.host: 0.0.0.0
+
+# Uncomment the following lines for a production cluster deployment
+#transport.host: 0.0.0.0
+#discovery.zen.minimum_master_nodes: 1
+
+script.engine.groovy.inline.aggs: true
+reindex.remote.whitelist: 35.237.111.147:9200

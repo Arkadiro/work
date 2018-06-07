@@ -1,0 +1,383 @@
+@import '~theme/css/variables/responsive';
+
+.VueCarousel {
+  .VueCarousel-navigation {
+    .VueCarousel-navigation-button:before {
+      content: '';
+      display: block;
+      background: url('~theme/assets/icons/slider/control_arrow_bg_gray.svg');
+      height: 50px;
+      width: 30px;
+    }
+    .VueCarousel-navigation-next:before {
+      transform: rotate(180deg);
+    }
+    a {
+      &.VueCarousel-navigation-button:hover:after {
+        height: 0;
+      }
+    }
+  }
+}
+
+.product-detail-slider.VueCarousel {
+  transform: rotate(90deg);
+  transform-origin: 0 100%;
+  width: 396px;
+  margin-top: -23px;
+  @media (max-width: $screen__l ) {
+    transform: none;
+    width: 100%;
+    margin-top: 0;
+  }
+  .VueCarousel-pagination {
+    border-bottom: 1px solid color(lightgray2);
+  }
+
+  .VueCarousel-slide {
+    transform: rotate(-90deg);
+    img {
+      max-width: 50px;
+      max-height: 50px;
+      @media (max-width: $screen__l ) {
+        max-height: 100%;
+        max-width: 100%;
+        min-width: 245px;
+        min-height: 245px;
+      }
+    }
+    @media (max-width: $screen__l ) {
+      transform: none;
+    }
+  }
+  .active {
+    border: 3px solid color(lightblue);
+    border-radius: 5px;
+    @media (max-width: $screen__l ) {
+      border: none;
+    }
+  }
+  @media (max-width: $screen__l ) {
+    .VueCarousel-navigation {
+      display: none;
+    }
+  }
+  @media (min-width: $screen__l + 1) {
+    .VueCarousel-pagination {
+      display: none;
+    }
+  }
+}
+
+.categories-slider.collection {
+
+  .VueCarousel {
+    .VueCarousel-navigation {
+      .VueCarousel-navigation-prev {
+        left: -13px;
+      }
+      .VueCarousel-navigation-next {
+        right: -13px;
+      }
+
+      @media (max-width: $screen__m - 1) {
+        .VueCarousel-navigation-prev {
+          display: none;
+        }
+        .VueCarousel-navigation-next {
+          display: none;
+        }
+      }
+    }
+    .VueCarousel-slide {
+      flex-basis: 100%;
+      max-width: calc(100% / 6);
+
+      .collection-category {
+        border-top: 1px solid color(silver2);
+        border-left: 1px solid color(silver2);
+      }
+    }
+    .VueCarousel-slide:nth-child(even) {
+      .collection-category {
+        border-bottom: 1px solid color(silver2);
+      }
+    }
+    .VueCarousel-slide:nth-child(12n+11), .VueCarousel-slide:nth-child(12n+12), .VueCarousel-slide:nth-last-child(2), .VueCarousel-slide:last-child {
+      .collection-category {
+        border-right: 1px solid color(silver2);
+      }
+    }
+    .collection-category {
+      height: 100%;
+      overflow: hidden
+    }
+    .VueCarousel-navigation {
+      .VueCarousel-navigation-button:before {
+        background: url('~theme/assets/icons/slider/control_arrow_bg_white_blue.svg');
+      }
+    }
+    .VueCarousel-wrapper .VueCarousel-inner {
+      flex-flow: column wrap;
+      max-height: 450px;
+      padding-top: 15px;
+      padding-bottom: 2px;
+      @media (max-width: $screen__m) {
+        max-height: 300px;
+      }
+    }
+    @media (min-width: $screen__m + 1) {
+      .VueCarousel-pagination {
+        display: none;
+      }
+    }
+    @media (max-width: $screen__m) {
+      .VueCarousel-navigation {
+        display: none;
+      }
+      .VueCarousel-wrapper .VueCarousel-inner {
+        padding-top: 0;
+      }
+      .VueCarousel-slide {
+        max-width: calc(100% / 2);
+        max-height: 140px;
+      }
+      .VueCarousel-slide:nth-child(4n+3), .VueCarousel-slide:nth-child(4n+4) {
+        .collection-category {
+          border-right: 1px solid color(silver2);
+        }
+      }
+    }
+  }
+}
+
+.collection {
+  .VueCarousel {
+    .VueCarousel-inner {
+      justify-content: space-between;
+      padding: 15px 0;
+    }
+    .VueCarousel-navigation {
+      .VueCarousel-navigation-prev {
+        left: -5px;
+      }
+      .VueCarousel-navigation-next {
+        right: -5px;
+      }
+
+      @media (max-width: $screen__m - 1) {
+        .VueCarousel-navigation-prev {
+          left: 8px;
+        }
+        .VueCarousel-navigation-next {
+          right: 8px;
+        }
+      }
+      @media (max-width: $screen__s - 1) {
+        .VueCarousel-navigation-prev {
+          left: 50px;
+        }
+        .VueCarousel-navigation-next {
+          right: 50px;
+        }
+      }
+      @media (max-width: $screen__xs -1) {
+        .VueCarousel-navigation-prev {
+          display: none;
+        }
+        .VueCarousel-navigation-next {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.main-slider {
+  .VueCarousel {
+    .VueCarousel-navigation {
+      .VueCarousel-navigation-prev {
+        left: 125px;
+      }
+      .VueCarousel-navigation-next {
+        right: 125px;
+      }
+      @media (max-width: $screen__m - 1) {
+        .VueCarousel-navigation-prev {
+          display: none;
+        }
+        .VueCarousel-navigation-next {
+          display: none;
+        }
+      }
+    }
+    .VueCarousel-pagination {
+      display: none;
+      position: absolute;
+      bottom: 2px;
+      @media (max-width: $screen__m - 1) {
+        display: block;
+      }
+    }
+  }
+}
+
+.brands-slider {
+  .VueCarousel {
+    .VueCarousel-slide {
+      align-items: center;
+      display: flex;
+      height: 100px;
+    }
+    .VueCarousel-navigation {
+      .VueCarousel-navigation-prev {
+        left: -50px;
+      }
+      .VueCarousel-navigation-next {
+        right: -50px;
+      }
+      .VueCarousel-navigation-button:before {
+        background: url('~theme/assets/icons/slider/control_arrow_bg_white.svg');
+      }
+      @media (max-width: $screen__xxl) {
+        .VueCarousel-navigation-prev {
+          left: -20px;
+        }
+        .VueCarousel-navigation-next {
+          right: -20px;
+        }
+      }
+      @media (max-width: $screen__xxl) {
+        .VueCarousel-navigation-prev {
+          left: 30px;
+        }
+        .VueCarousel-navigation-next {
+          right: 30px;
+        }
+      }
+      @media (max-width: $screen__m) {
+        .VueCarousel-navigation-prev {
+          left: 0;
+        }
+        .VueCarousel-navigation-next {
+          right: 0;
+        }
+      }
+    }
+    .VueCarousel-pagination {
+      display: none;
+      position: absolute;
+      bottom: 2px;
+      @media (max-width: $screen__m - 1) {
+        display: block;
+      }
+    }
+  }
+}
+.best-shops {
+  .VueCarousel {
+    .VueCarousel-navigation {
+      @media (max-width: $screen__m - 1) {
+        .VueCarousel-navigation-prev {
+          display: none;
+        }
+        .VueCarousel-navigation-next {
+          display: none;
+        }
+      }
+    }
+    .VueCarousel-pagination {
+      display: none;
+      position: absolute;
+      bottom: 2px;
+      @media (max-width: $screen__m - 1) {
+        display: block;
+      }
+    }
+  }
+}
+
+.watched-slider {
+  .VueCarousel {
+    .VueCarousel-inner {
+      padding-bottom: 2px;
+    }
+    @media (max-width: $screen__l) {
+      .VueCarousel-navigation {
+        display: none;
+      }
+      .VueCarousel-pagination {
+        padding-bottom: 10px;
+      }
+      .VueCarousel-slide {
+        padding-right: 0px;
+        padding-left: 0px;
+      }
+
+      .VueCarousel-slide:nth-child(3n + 3) {
+        .content {
+          border-right: 1px solid color(silver2);
+        }
+      }
+      .VueCarousel-slide:last-child {
+        .content {
+          border-right: 1px solid color(silver2);
+        }
+      }
+    }
+    @media (min-width: $screen__l + 1) {
+      .VueCarousel-pagination {
+        display: none;
+      }
+      .VueCarousel-navigation {
+        .VueCarousel-navigation-prev {
+          left: -7px;
+        }
+        .VueCarousel-navigation-next {
+          right: -7px;
+        }
+      }
+    }
+    @media (max-width: $screen__m) {
+      .VueCarousel-wrapper {
+        padding-bottom: 2px;
+      }
+    }
+  }
+}
+
+.accessories.collection {
+  .VueCarousel {
+    @media (max-width: $screen__m) {
+      .VueCarousel-inner {
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 420px;
+      }
+      .VueCarousel-slide {
+        max-height: 186px;
+        padding-right: 14px;
+        padding-left: 14px;
+        width: 100%;
+        .product {
+          border-left: 1px solid color(lightgray4);
+          border-right: 1px solid color(lightgray4);
+        }
+
+        &:nth-child(2n + 2) {
+          .product {
+            border-bottom: 1px solid color(lightgray4);
+          }
+        }
+      }
+      .VueCarousel-navigation {
+        display: none;
+      }
+    }
+    @media (min-width: $screen__m + 1) {
+      .VueCarousel-pagination {
+        display: none;
+      }
+    }
+  }
+}

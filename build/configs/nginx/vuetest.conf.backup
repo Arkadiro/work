@@ -1,0 +1,81 @@
+resolver 10.47.240.10 valid=10s;
+server {
+        listen 80;
+        server_name test.trg.kt-team.de;
+        include location_deny.conf;
+        include well-known.conf;
+        return 301 https://test.trg.kt-team.de$request_uri;
+        location / {
+#               location = /service-worker.js {
+#               expires off;
+#               add_header Cache-Control no-cache;
+#               access_log off;
+#	}
+#               auth_basic "Restricted";
+#               auth_basic_user_file /etc/nginx/htpasswd;
+#                proxy_buffering off;
+#                proxy_pass http://trg-vuetest-storefront:3000/;
+#                proxy_set_header Host $host;
+#                proxy_set_header X-Forwarded-For $remote_addr;
+#                proxy_read_timeout 1200;
+#                proxy_send_timeout 1200;
+#                proxy_connect_timeout 1200;
+
+                ### SET GEOIP Variables ###
+#                proxy_set_header country $geoip_city_country_code;
+#                proxy_set_header region $geoip_region;
+#                proxy_set_header city $geoip_city;
+#                proxy_set_header postal $geoip_postal_code;
+
+#                proxy_set_header  X-City     $city;
+#                proxy_set_header  X-Country  $country;
+#                proxy_set_header  X-Region   $region;
+#        location /api {
+#               proxy_pass http://trg-vuetest-api:8080/api;
+#	}
+	}
+}
+server {
+    listen 443 ssl;
+    server_name test.trg.kt-team.de;
+    ssl                             on;
+#    ssl_certificate                 /etc/nginx/certs/demo.trg.kt-team.de/archive/demo.trg.kt-team.de/fullchain01.pem;
+    ssl_certificate                 /etc/nginx/certs/fullchain1.pem;
+#    ssl_certificate_key             /etc/nginx/certs/demo.trg.kt-team.de/archive/demo.trg.kt-team.de/privkey01.pem;
+    ssl_certificate_key             /etc/nginx/certs/privkey1.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers On;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK;
+    add_header Strict-Transport-Security max-age=15768000;
+    ssl_stapling on;
+
+    include gzip.conf;
+    include location_deny.conf;
+    fastcgi_param                   HTTPS on;
+    # To allow POST on static pages
+    error_page  405     =200 $uri;
+    include well-known.conf;
+    location / {
+        proxy_pass http://trg-vuetest-storefront:3000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header realip $remote_addr;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Port 443;
+        proxy_set_header Ssl-Offloaded "https";
+        proxy_set_header HTTPS "on";
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_read_timeout 1200;
+        proxy_send_timeout 1200;
+        proxy_connect_timeout 1200;
+        location /api {
+                proxy_pass http://trg-vuetest-api:8080/api;
+        }
+	location /img {
+                proxy_pass http://trg-vuetest-api:8080/img;
+        }
+	rewrite ^/pwa.html$ / permanent;
+    }
+}
+

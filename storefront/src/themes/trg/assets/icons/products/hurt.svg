@@ -1,0 +1,12 @@
+<svg width="23px" height="22px" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs/>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mini_product" transform="translate(-249.000000, -23.000000)" fill="#E64C3C">
+            <g id="hurt" transform="translate(248.000000, 23.000000)">
+                <g id="hearts" transform="translate(1.000000, 0.000000)">
+                    <path d="M11.4894818,22 C17.7150611,17.491313 20.8296368,13.3672457 22.2942455,10.22152 C24.0053372,6.54604246 22.5169137,1.98977774 18.7835507,0.460894252 C14.3952814,-1.33546389 11.4894818,2.80899382 11.4894818,2.80899382 C11.4894818,2.80899382 8.60432173,-1.34625883 4.21644931,0.450898936 C0.483086306,1.97978243 -1.00533718,6.53604715 0.705754459,10.2115246 C2.17036316,13.3568506 5.26390253,17.4917128 11.4894818,22 Z" id="Shape" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

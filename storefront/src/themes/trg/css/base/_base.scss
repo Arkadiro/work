@@ -1,0 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+}
+
+input, textarea, select, button {
+  font-family: Avenir;
+}
+
+#app {
+  overflow-x: hidden;
+}
+
+#viewport {
+  overflow-x: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

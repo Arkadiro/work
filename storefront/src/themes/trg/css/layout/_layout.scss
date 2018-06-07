@@ -1,0 +1,82 @@
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center-self {
+  align-self: center;
+}
+
+.bottom-self {
+  align-self: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mw-100 {
+  max-width: 100%
+}
+
+@mixin width {
+  @for $i from 0 to 1000 {
+    .width-#{$i} {
+      width: #{$i}px;
+    }
+  }
+}
+
+@mixin height {
+  @for $i from 0 to 1000 {
+    .height-#{$i} {
+      height: #{$i}px;
+    }
+  }
+}
+
+@include width;
+@include height;

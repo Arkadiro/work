@@ -1,0 +1,16 @@
+{
+  "general": {
+    "Shaving system": "Grid",
+    "Shaving method": "Dry",
+    "Supply system": "From the network / battery",
+    "Number of shaving elements": "Two",
+    "System of recurrence of facial contours": "Floating heads, movable shaving unit",
+    "Accumulator": "NiMH, charging time 8 h"
+  },
+  "properties": {
+    "Waterproof case": "Yes",
+    "Display": "Exercises",
+    "Voltage": "100-240V, auto switching",
+    "Picking": "Protective cover, cleaning brush"
+  }
+}

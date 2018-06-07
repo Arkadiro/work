@@ -1,0 +1,4 @@
+transport.host: localhost
+network.host: 0.0.0.0
+script.engine.groovy.inline.aggs: true
+reindex.remote.whitelist: 35.237.111.147:9200

@@ -1,0 +1,76 @@
+{
+  "desktop": [
+    {
+      "name": "Home Pod for you",
+      "subtitle": "to $990",
+      "button_text": "Shop Now",
+      "button_bg": "yellow",
+      "image": "/assets/1.jpg",
+      "tag": "homepod",
+      "id": "100",
+      "color": "black"
+    },
+    {
+      "name": "MacBook here",
+      "subtitle": "to $990",
+      "button_text": "Shop Now",
+      "button_bg": "blue",
+      "image": "/assets/3.jpg",
+      "tag": "macbook",
+      "id": "101",
+      "color": "white"
+    },
+    {
+      "name": "Home Pod for you",
+      "subtitle": "to $990",
+      "button_text": "Shop Now",
+      "button_bg": "red",
+      "image": "/assets/4.jpg",
+      "tag": "homepod2",
+      "id": "102",
+      "color": "black"
+    }
+  ],
+  "mobile": [
+    {
+      "name": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "button_bg": "yellow",
+      "image": "/assets/image_mob_2.jpg",
+      "tag": "homepod",
+      "id": "103",
+      "color": "black"
+    },
+    {
+      "name": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "button_bg": "blue",
+      "image": "/assets/image_mob_1.jpg",
+      "tag": "homepod",
+      "id": "104",
+      "color": "black"
+    },
+    {
+      "name": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "button_bg": "yellow",
+      "image": "/assets/image_mob_2.jpg",
+      "tag": "homepod",
+      "id": "105",
+      "color": "black"
+    },
+    {
+      "name": "JBL 3000XL",
+      "subtitle": "Product category",
+      "button_text": "Shop Now",
+      "button_bg": "blue",
+      "image": "/assets/image_mob_1.jpg",
+      "tag": "homepod",
+      "id": "106",
+      "color": "black"
+    }
+  ]
+}

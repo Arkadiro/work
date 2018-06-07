@@ -1,0 +1,24 @@
+[
+  {
+    "thumbnail": "/assets/product/one_blade1.jpg",
+    "src": "/assets/product/one_blade1_1.jpg"
+  },
+  {
+    "thumbnail": "/assets/product/one_blade2.jpg",
+    "src":"/assets/product/one_blade2_1.jpg"
+  },
+  {
+    "thumbnail": "/assets/product/one_blade3.jpg",
+    "src":"/assets/product/one_blade3_1.jpg"
+  },
+  {
+    "thumbnail": "/assets/product/one_blade4.jpg",
+    "src":"/assets/product/one_blade4_1.jpg"
+  },
+  {
+    "thumbnail": "/assets/product/video.svg"
+  },
+  {
+    "thumbnail": "/assets/product/3d.svg"
+  }
+]

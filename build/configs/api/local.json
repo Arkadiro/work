@@ -1,0 +1,82 @@
+{
+	"port": 8080,
+	"esHost": "trg-vuetest-elastic-first:9200",
+	"esIndexes": [
+		"vue_storefront_data",
+		"vue_storefront_category",
+		"vue_storefront_catalog"
+	],
+	"objHashSecret": "__SECRET_CHANGE_ME__",
+	"tax": {
+		"defaultCountry": "PL",
+		"defaultRegion": "",
+		"calculateServerSide": true,
+		"alwaysSyncPlatformPricesOver": false,
+		"usePlatformTotals": true
+	},
+	"esUser": "",
+	"esPassword": "",
+	"bodyLimit": "100kb",
+	"corsHeaders": [
+		"Link"
+	],
+	"kue": {},
+	"redis": {
+		"host": "127.0.0.1",
+		"port": 6379
+	},
+
+	"platform": "magento2",
+	"registeredExtensions": ["mailchimp-subscribe"],
+
+	"extensions": {
+		"mailchimp": {
+			"listId": "e06875a7e1",
+			"apiKey": "a9a3318ea7d30f5c5596bd4a78ae0985-us3",
+			"apiUrl": "https://us3.api.mailchimp.com/3.0"
+		}
+	},
+
+	"magento2": {
+		"url": "http://m2.test.trg.kt-team.de/",
+		"imgUrl": "http://localhost:8080/media/catalog/product",
+		"magentoUserName": "",
+		"magentoUserPassword": "",
+		"httpUserName": "",
+		"httpUserPassword": "",
+		"api": {
+			"url": "http://m2.test.trg.kt-team.de/rest/",
+			"consumerKey": "fo75fvbohsyhbv2sl1jxnrhwwc6xfqmj",
+			"consumerSecret": "2e5hut9vo2mpogeyr8edm28o1qiurbux",
+			"accessToken": "oepkpicxn22oxyyhahvqt1mah6v48hep",
+			"accessTokenSecret": "4fp0jy4cgdhp57i8p00wshg0jmu5px23"
+		}
+	},
+	"imageable": {
+		"namespace": "",
+		"maxListeners": 512,
+		"imageSizeLimit": 1024,
+		"timeouts": {
+			"convert": 5000,
+			"identify": 100,
+			"download": 1000
+		},
+		"whitelist": {
+			"allowedHosts": [".*divante.pl", ".*vuestorefront.io"],
+			"trustedHosts": [".*divante.pl", ".*vuestorefront.io"]
+		},
+		"keepDownloads": true,
+		"maxDownloadCacheSize": 1000,
+		"tmpPathRoot": "/tmp"
+	},
+	"productsWorker": {
+		"pimElastic": "trg-pimtest-elastic:9200",
+		"pim": {
+			"host": "trg-pimtest-web:8224",
+			"client": "1_18zi8k92q2sk8oks804sgcw0ko04kkokgss40wwc8s8oosw4cs",
+			"secret": "5bsz0lgwgg844cwoook8g4wwww8oowwc8c4g8swg8ggckgks8s",
+			"username": "admin",
+			"password": "admin"
+		}
+	}
+}

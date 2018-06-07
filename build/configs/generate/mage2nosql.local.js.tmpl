@@ -1,0 +1,34 @@
+module.exports = {
+
+    magento: {
+        url:  process.env.MAGENTO_URL || '$api_magento2_api_url',
+        consumerKey: process.env.MAGENTO_CONSUMER_KEY || '$api_magento2_api_consumerKey',
+        consumerSecret: process.env.MAGENTO_CONSUMER_SECRET || '$api_magento2_api_consumerSecret',
+        accessToken: process.env.MAGENTO_ACCESS_TOKEN || '$api_magento2_api_accessToken',
+        accessTokenSecret: process.env.MAGENTO_ACCESS_TOKEN_SECRET || '$api_magento2_api_accessTokenSecret',
+    },
+
+    kue: {}, // default KUE config works on local redis instance
+
+    db: {
+        /*    driver: 'mongo',
+         url: process.env.DATABASE_URL || 'mongodb://localhost:27017/rcom' */
+
+        driver: 'elasticsearch',
+        url: process.env.DATABASE_URL || 'http://$es',
+        indexName: 'vue_storefront_catalog'
+    },
+
+    redis: {
+        host: '$redis_host',
+        port: 6379
+    },
+
+    passport: {
+        jwtSecret: 'MyS3cr3tK3Y',
+        jwtSession: {
+            session: false
+        }
+    }
+
+}
